@@ -1,8 +1,29 @@
 {
   "name": "itable",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development rollup -w -c",
+    "build": "cross-env NODE_ENV=production rollup -c"
+  },
   "repository": "https://github.com/Mr111ram/ITable.git",
   "author": "Kirill Katelyanets <ikatelyanets@yandex.ru>",
-  "license": "MIT"
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-eslint": "^8.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@web/rollup-plugin-html": "^1.10.3",
+    "cross-env": "^7.0.3",
+    "rollup": "^2.74.1",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-progress": "^1.1.2",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-styles": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.52.0"
+  },
+  "dependencies": {}
 }
