@@ -1,0 +1,8 @@
+{
+  "name": "itable",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Mr111ram/ITable.git",
+  "author": "Kirill Katelyanets <ikatelyanets@yandex.ru>",
+  "license": "MIT"
+}
