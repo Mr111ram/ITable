@@ -1,0 +1,43 @@
+@import "vars"
+
+@mixin action_element($bcolor: transparent, $ocolor: $outline-color, $bradius: 2px)
+	border: 1px solid transparent
+	border-radius: 2px
+	outline: none
+	&:hover
+			border: 1px solid $bcolor
+	&:focus,
+	&:active
+		outline: 2px solid $ocolor
+	
+@mixin button($color: $outline-color)
+	background-color: transparent
+	color: $text-color
+	height: 26px
+	min-height: 26px
+	padding: 3px
+	text-align: center
+	display: inline-block
+	position: relative
+	border: none
+	@include action_element($ocolor: $color)	
+
+	i
+		font-size: 18px
+
+	&:active,
+	.active 
+		background-color: rgba(80, 80, 80, .2)
+		color: $color
+
+	&:hover
+		cursor: pointer
+		background-color: rgba(80, 80, 80, .2)
+
+@mixin flex-center()
+	display: flex
+	justify-content: center
+	align-items: center
+
+@mixin shadow-preset($color: rgba(60, 60, 60, .15))
+	box-shadow: 0 2px 5px 2px $color

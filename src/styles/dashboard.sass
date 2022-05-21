@@ -1,0 +1,69 @@
+@import "vars"
+@import "mixins"
+
+.db
+	display: flex
+	flex-direction: column
+	height: 100vh
+	&-header
+		z-index: 10
+		height: $header-height
+		@include flex-center()
+		@include shadow-preset()
+	&-view 
+		max-width: 1000px
+		margin: 0 auto
+	&-new
+		z-index: 5
+		padding: 1.5rem
+		background-color: #f2f2f2
+	&-create
+		display: block
+		width: 160px
+		height: 160px
+		background-color: #fff
+		border-radius: 4px
+		font-size: 1.4rem
+		text-decoration: none
+		text-align: center
+		color: $text-color
+		text-transform: uppercase
+		font-weight: 300
+		&:hover,
+		&:focus 
+			outline: 2px solid $outline-color
+		@include flex-center()
+		@include shadow-preset()
+	&-tables
+		z-index: 10
+		flex-grow: 1
+		.db-list
+			&_header
+				padding: 0 6px
+				margin: 2rem 0 
+				display: flex
+				justify-content: space-between
+				color: $text-color
+				font-weight: 300
+				font-size: 12px
+				text-transform: uppercase
+				.name
+					text-align: right
+				.date
+					text-align: right
+			&_item
+				padding: 3px 6px
+				margin: .5rem 0 
+				display: flex
+				justify-content: space-between
+				color: $text-color
+				font-size: 16px
+				&:hover
+					border-radius: 25px
+					background-color: #f2f2f2
+				a
+					text-decoration: none
+					color: $text-color
+					&:hover
+						text-decoration: underline
+		@include shadow-preset()

@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "start": "cross-env NODE_ENV=development rollup -w -c",
-    "build": "cross-env NODE_ENV=production rollup -c"
+    "build": "cross-env NODE_ENV=production del-cli --force 'public' && rollup -c"
   },
   "repository": "https://github.com/Mr111ram/ITable.git",
   "author": "Kirill Katelyanets <ikatelyanets@yandex.ru>",
@@ -16,6 +16,7 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@web/rollup-plugin-html": "^1.10.3",
     "cross-env": "^7.0.3",
+    "del-cli": "^4.0.1",
     "rollup": "^2.74.1",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-livereload": "^2.0.5",
@@ -25,5 +26,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.52.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "sanitize.css": "^13.0.0"
+  }
 }

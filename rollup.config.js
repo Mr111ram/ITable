@@ -39,7 +39,11 @@ const rollupMainConfig = defineConfig({
 		]
 	},
 	plugins: [
-		styles({ mode: ["extract", "styles.css"], }),
+		styles({ 
+			mode: ["extract", "styles.css"],
+			sourceMap: DEV_MODE ? 'inline' : false,
+			minimize: !DEV_MODE,
+		}),
 		nodeResolve(),
 		commonjs(),
 		copy({
