@@ -1,0 +1,30 @@
+@import "vars"
+@import "mixins"
+
+.itable-fx
+	position: absolute
+	left: 0
+	right: 0
+	padding-right: 2px
+	top: $header-height + $toolbar-height
+	height: $fx-height
+	display: flex
+	align-items: flex-start
+	border-bottom: 1px solid $border-color
+
+	.fx
+		line-height: $fx-height
+		font-size: 18px
+		font-style: italic
+		text-align: center
+		min-width: $fx-cell-width
+		border-right: 1px solid $border-color
+	.input
+		z-index: 10
+		cursor: text
+		color: $text-color
+		font-size: 14px
+		padding: 0 5px
+		width: 100%
+		line-height: $fx-height
+		max-height: $fx-height

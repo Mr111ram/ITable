@@ -1,0 +1,26 @@
+@import "vars"
+@import "mixins"
+
+.itable-header
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	height: $header-height
+	padding: 0 10px
+	display: flex
+	justify-content: space-between
+	align-items: center
+
+	.input 
+		padding: 2px 7px
+		color: $text-color
+		border: 1px solid transparent
+		border-radius: 2px
+		height: 20px
+		font-size: 18px
+		line-height: 22px
+		@include action_element($bcolor: $border-color)
+	
+	.button
+		@include button($color: $danger-color)

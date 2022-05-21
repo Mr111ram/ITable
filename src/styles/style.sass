@@ -1,2 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap')
+@import "sanitize.css"
+@import "vars"
+
+*
+	padding: 0
+	margin: 0
+
+html
+	font-family: 'Montserrat', "Segoe UI", Roboto, Helvetica, sans-serif
+
 body
-	background-color: #f2f2f2
+	color: $text-color
+	font-size: 12px
+
+.itable
+	position: relative
+	color: $text-color
+	height: 100%
+	max-width: 100%
+	padding-bottom: 2px
+
+@import "dashboard"
+@import "header"
+@import "toolbar"
+@import "fx"
+@import "table"

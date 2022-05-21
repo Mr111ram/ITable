@@ -1,0 +1,49 @@
+@import "vars"
+@import "mixins"
+
+.itable-table
+	position: absolute
+	left: 0
+	right: 0
+	top: $header-height + $toolbar-height + $fx-height
+	overflow-x: auto 
+	padding-bottom: 2px
+	.row
+		display: flex
+		flex-direction: row
+		min-height: 20px
+		height: $row-height
+	.row-info
+		@include flex-center()
+		min-width: $fx-cell-width
+		height: 100%
+		border: 1px solid $border-color
+		border-top: none
+		background-color: $row-info-bg-color
+	.row-data
+		display: flex
+	.column
+		@include flex-center()
+		background-color: $row-info-bg-color
+		min-width: 40px
+		width: $cell-width
+		height: 100%
+		border: 1px solid $border-color
+		border-top: none
+		border-left: none
+	.cell
+		cursor: text
+		min-width: 40px
+		width: $cell-width
+		padding: 5px
+		height: 100%
+		border: 1px solid lighten($border-color, 10%)
+		border-top: none
+		border-left: none
+		white-space: nowrap
+		font-size: 14px
+		line-height: 100%
+		outline: none
+		&.selected
+			z-index: 10
+			outline: 2px solid $outline-color
