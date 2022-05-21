@@ -8,9 +8,10 @@ import commonjs from '@rollup/plugin-commonjs';
 import progress from 'rollup-plugin-progress';
 import eslint from '@rollup/plugin-eslint';
 import livereload from 'rollup-plugin-livereload';
+import { getBabelOutputPlugin } from '@rollup/plugin-babel';
 import copy from 'rollup-plugin-copy'
+import pug from 'rollup-plugin-pug-html';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import { terser } from "rollup-plugin-terser";
 
 const DEV_MODE = process.env.NODE_ENV === 'development';
 
@@ -19,10 +20,6 @@ const transformHtml = (html) => (
 		.replace('</head>', '<link rel="stylesheet" href="./styles.asset.css"></head>')
 		.replace('</body>', '<script src="./app.js" defer></script></body>')
 );
-const terserConfig = {
-	ecma: (DEV_MODE ? 2020 : 2016),
-	format: { beautify: DEV_MODE },
-}
 
 const rollupMainConfig = defineConfig({
 	cache: true,
@@ -35,15 +32,19 @@ const rollupMainConfig = defineConfig({
 		sourcemap: DEV_MODE ? 'inline' : false,
 		format: 'esm',
 		plugins: [
-			terser(terserConfig),
+			getBabelOutputPlugin({ 
+				presets: ['@babel/preset-env'],
+				plugins: ['@babel/plugin-proposal-class-properties']
+			})
 		]
 	},
 	plugins: [
 		styles({ 
 			mode: ["extract", "styles.css"],
 			sourceMap: DEV_MODE ? 'inline' : false,
-			minimize: !DEV_MODE,
+			minimize: !DEV_MODE
 		}),
+		pug({ pretty: true, }),
 		nodeResolve(),
 		commonjs(),
 		copy({
