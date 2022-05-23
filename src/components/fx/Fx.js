@@ -1,10 +1,10 @@
-import { CoreComponent } from "../../core/CoreComponent";
-import template from "./fx.template.pug";
+import { CoreComponent } from '../../core/CoreComponent';
+import template from './fx.template.pug';
 
-export class Fx extends CoreComponent{
+export class Fx extends CoreComponent {
 	static className = 'itable-fx';
 
-	constructor ($root) {
+	constructor($root) {
 		super($root, {
 			name: 'Fx',
 			listeners: ['input'],

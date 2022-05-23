@@ -1,4 +1,4 @@
-import { $ } from "../../core/DOM";
+import { $ } from '../../core/DOM';
 
 export class ITable {
 	constructor(selector, options) {
@@ -9,7 +9,7 @@ export class ITable {
 	getRoot() {
 		const $root = $.create('div', 'itable');
 
-		this.components = this.components.map(Component => {
+		this.components = this.components.map((Component) => {
 			const $el = $.create('div', Component.className);
 			const component = new Component($el);
 			// DEBUG
@@ -20,12 +20,12 @@ export class ITable {
 			$root.append($el);
 			return component;
 		});
-		
+
 		return $root;
 	}
 
 	render() {
 		this.$el.append(this.getRoot());
-		this.components.forEach(component => component.init());
+		this.components.forEach((component) => component.init());
 	}
 }

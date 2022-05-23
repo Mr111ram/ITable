@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "start": "cross-env NODE_ENV=development rollup -w -c",
-    "build": "cross-env NODE_ENV=production del-cli --force 'public' && rollup -c"
+    "build": "cross-env NODE_ENV=production del-cli --force 'public' && rollup -c",
+		"prettier": "prettier --write src",
+		"prettier:check": "prettier --check src"
   },
   "repository": "https://github.com/Mr111ram/ITable.git",
   "author": "Kirill Katelyanets <ikatelyanets@yandex.ru>",
@@ -22,6 +24,7 @@
     "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.3",
     "del-cli": "^4.0.1",
+    "prettier": "2.6.2",
     "rollup": "^2.74.1",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-livereload": "^2.0.5",

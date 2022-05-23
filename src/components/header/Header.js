@@ -1,10 +1,10 @@
-import { CoreComponent } from "../../core/CoreComponent";
-import template from "./header.template.pug";
+import { CoreComponent } from '../../core/CoreComponent';
+import template from './header.template.pug';
 
-export class Header extends CoreComponent{
+export class Header extends CoreComponent {
 	static className = 'itable-header';
 
-	toHTML(){
+	toHTML() {
 		return template;
 	}
 }

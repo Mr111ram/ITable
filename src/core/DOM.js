@@ -1,8 +1,9 @@
 class IDOM {
 	constructor(selector) {
-		this.$el = typeof selector === 'string' 
-			? document.querySelector(selector)
-			: selector ;
+		this.$el =
+			typeof selector === 'string'
+				? document.querySelector(selector)
+				: selector;
 	}
 
 	html(html) {
@@ -13,7 +14,7 @@ class IDOM {
 		return this.$el.outerHTML.trim();
 	}
 
-	clear () {
+	clear() {
 		this.html('');
 		return this;
 	}
@@ -29,7 +30,7 @@ class IDOM {
 	on(eventType, callback) {
 		this.$el.addEventListener(eventType, callback);
 	}
-	
+
 	off(eventType, callback) {
 		this.$el.removeEventListener(eventType, callback);
 	}
@@ -43,4 +44,4 @@ $.create = (tagName, classes = '') => {
 	const el = document.createElement(tagName);
 	if (classes) el.classList.add(classes);
 	return $(el);
-}
+};

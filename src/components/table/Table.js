@@ -1,10 +1,10 @@
-import { CoreComponent } from "../../core/CoreComponent";
-import { createTable } from "./table.template";
+import { CoreComponent } from '../../core/CoreComponent';
+import { createTable } from './table.template';
 
-export class Table extends CoreComponent{
+export class Table extends CoreComponent {
 	static className = 'itable-table';
-	
-	toHTML(){
+
+	toHTML() {
 		return createTable();
 	}
-} 
+}

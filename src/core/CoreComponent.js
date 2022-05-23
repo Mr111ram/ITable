@@ -1,13 +1,13 @@
-import { DOMListener } from "./DOMListener.js";
+import { DOMListener } from './DOMListener.js';
 
 export class CoreComponent extends DOMListener {
-	constructor($root, options={}) {
+	constructor($root, options = {}) {
 		super($root, options.listeners);
 		this.name = options.name;
 	}
 
 	// Return template component
-	toHTML(){
+	toHTML() {
 		return '';
 	}
 
@@ -15,7 +15,7 @@ export class CoreComponent extends DOMListener {
 		this.initDOMListeners();
 	}
 
-	destroy(){
+	destroy() {
 		this.removeDOMListeners();
 	}
 }

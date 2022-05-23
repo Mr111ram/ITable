@@ -1,7 +1,7 @@
-import { capitalize } from "./utils";
+import { capitalize } from './utils';
 
 export class DOMListener {
-	constructor ($root, listeners = []) {
+	constructor($root, listeners = []) {
 		if (!$root) {
 			throw new Error('No $root provided for DOMListener');
 		}
@@ -10,11 +10,13 @@ export class DOMListener {
 	}
 
 	initDOMListeners() {
-		this.listeners.forEach(listener => {
+		this.listeners.forEach((listener) => {
 			const method = getMethodName(listener);
 			if (!this[method]) {
 				const name = this.name ?? '';
-				throw new Error(`Method ${method} is not defined in ${name} Component!`)
+				throw new Error(
+					`Method ${method} is not defined in ${name} Component!`,
+				);
 			}
 			this[method] = this[method].bind(this);
 			this.$root.on(listener, this[method]);
@@ -22,11 +24,13 @@ export class DOMListener {
 	}
 
 	removeDOMListeners() {
-		this.listeners.forEach(listener => {
+		this.listeners.forEach((listener) => {
 			const method = getMethodName(listener);
 			if (!this[method]) {
 				const name = this.name ?? '';
-				throw new Error(`Method ${method} is not defined in ${name} Component!`)
+				throw new Error(
+					`Method ${method} is not defined in ${name} Component!`,
+				);
 			}
 			this.$root.off(listener, this[method]);
 		});
