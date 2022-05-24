@@ -3,22 +3,50 @@ const CODES = {
 	Z: 90,
 };
 
-function createCell() {
-	return `
-	<div class="cell" contenteditable spellcheck="false"></div>
+function createCell(col) {
+	return /*html*/ `
+	<div class="cell" 
+		contenteditable 
+		spellcheck="false" 
+		data-col="${col}"
+	></div>
 	`;
 }
 
 function createCol(col) {
-	return `
-		<div class="column">${col}</div>
+	return /*html*/ `
+		<div 
+			class="column"
+			data-type="resizable"
+			data-column="${col}"
+		>
+			${col}
+			<div 
+				class="column-resize"
+				data-resize="col"
+			></div>
+		</div>
 	`;
 }
 
 function createRow(content, count = '') {
-	return `
-		<div class="row">
-			<div class="row-info">${count}</div>
+	const resize = /*html*/ `
+		<div 
+			class="row-resize"
+			data-resize="row"
+		></div>
+	`;
+	return /*html*/ `
+		<div 
+			class="row"
+			data-type="resizable"
+		>
+			<div 
+				class="row-info"
+			>
+				${count}
+				${count && resize}
+			</div>
 			<div class="row-data">${content}</div>
 		</div>
 	`;
@@ -40,7 +68,11 @@ export function createTable(rowsCount = 15) {
 
 	rows.push(createRow(cols));
 
-	const rowCells = new Array(colsCount).fill('').map(createCell).join('');
+	const rowCells = new Array(colsCount)
+		.fill('')
+		.map(toChar)
+		.map(createCell)
+		.join('');
 
 	for (let i = 0; i < rowsCount; i++) {
 		rows.push(createRow(rowCells, i + 1));

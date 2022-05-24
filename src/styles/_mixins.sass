@@ -41,3 +41,11 @@
 
 @mixin shadow-preset($color: rgba(60, 60, 60, .15))
 	box-shadow: 0 2px 5px 2px $color
+
+@mixin not-select()
+	-webkit-touch-callout: none
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none

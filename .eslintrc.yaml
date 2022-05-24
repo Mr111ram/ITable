@@ -6,6 +6,8 @@ env:
   commonjs: true
   browser: true
   node: true
+rules:
+	no-unused-vars: false
 parser: babel-eslint
 parserOptions:
   ecmaVersion: 2020

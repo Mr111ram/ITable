@@ -27,12 +27,37 @@ class IDOM {
 		return this;
 	}
 
+	closest (selector) {
+		return $(this.$el.closest(selector));
+	}
+
 	on(eventType, callback) {
 		this.$el.addEventListener(eventType, callback);
 	}
 
 	off(eventType, callback) {
 		this.$el.removeEventListener(eventType, callback);
+	}
+
+	getCords(){
+		return this.$el.getBoundingClientRect();
+	}
+
+	find(selector) {
+		return this.$el.querySelector(selector);
+	}
+
+	findAll(selector) {
+		return this.$el.querySelectorAll(selector);
+	}
+
+	style(styles={}) {
+		Object.keys(styles).forEach(key => this.$el.style[key] = styles[key]);
+		return this;
+	}
+
+	getStyle(key) {
+		return this.$el.style[key];
 	}
 }
 

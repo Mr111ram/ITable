@@ -15,15 +15,30 @@
 		height: $row-height
 	.row-info
 		@include flex-center()
+		@include not-select()
+		position: relative
 		min-width: $fx-cell-width
 		height: 100%
 		border: 1px solid $border-color
 		border-top: none
 		background-color: $row-info-bg-color
+		.row-resize
+			position: absolute
+			left: 0
+			bottom: 0
+			right: 0
+			height: 4px
+			background-color: $outline-color
+			opacity: 0
+			&:hover
+				cursor: row-resize
+				opacity: 1
 	.row-data
 		display: flex
 	.column
 		@include flex-center()
+		@include not-select()
+		position: relative
 		background-color: $row-info-bg-color
 		min-width: 40px
 		width: $cell-width
@@ -31,6 +46,17 @@
 		border: 1px solid $border-color
 		border-top: none
 		border-left: none
+		&-resize
+			position: absolute
+			top: 0
+			bottom: 0
+			right: 0
+			width: 4px
+			background-color: $outline-color
+			opacity: 0
+			&:hover
+				cursor: col-resize
+				opacity: 1
 	.cell
 		cursor: text
 		min-width: 40px
