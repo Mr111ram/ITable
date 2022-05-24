@@ -27,7 +27,7 @@ class IDOM {
 		return this;
 	}
 
-	closest (selector) {
+	closest(selector) {
 		return $(this.$el.closest(selector));
 	}
 
@@ -39,7 +39,7 @@ class IDOM {
 		this.$el.removeEventListener(eventType, callback);
 	}
 
-	getCords(){
+	getCords() {
 		return this.$el.getBoundingClientRect();
 	}
 
@@ -51,8 +51,8 @@ class IDOM {
 		return this.$el.querySelectorAll(selector);
 	}
 
-	style(styles={}) {
-		Object.keys(styles).forEach(key => this.$el.style[key] = styles[key]);
+	style(styles = {}) {
+		Object.keys(styles).forEach((key) => (this.$el.style[key] = styles[key]));
 		return this;
 	}
 

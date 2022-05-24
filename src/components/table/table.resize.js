@@ -1,14 +1,14 @@
-import { $ } from "../../core/DOM";
+import { $ } from '../../core/DOM';
 
-export function resizeHandler ($root, event, resizeType){
+export function resizeHandler($root, event, resizeType) {
 	const $resizer = $(event.target);
 	const $parent = $resizer.closest('[data-type="resizable"]');
 
 	const cords = $parent.getCords();
-	
+
 	const resizeTypeCol = resizeType === 'col';
-	
-	const resizerStyles = { opacity: 1, zIndex: 10000};
+
+	const resizerStyles = { opacity: 1, zIndex: 10000 };
 
 	let value = 0;
 
@@ -16,7 +16,7 @@ export function resizeHandler ($root, event, resizeType){
 	else resizerStyles.right = '-5000px';
 
 	$resizer.style(resizerStyles);
-	
+
 	document.onmousemove = (e) => {
 		if (resizeTypeCol) {
 			const delta = e.pageX - cords.right;
@@ -30,19 +30,17 @@ export function resizeHandler ($root, event, resizeType){
 	};
 
 	document.onmouseup = () => {
-		const resizeStyle = resizeTypeCol 
-			? { width: value }
-			: { height: value };
+		const resizeStyle = resizeTypeCol ? { width: value } : { height: value };
 
 		$parent.style(resizeStyle);
-		
+
 		if (resizeTypeCol) {
 			const cells = $root.findAll(`[data-col=${$parent.$el.dataset.column}]`);
-			cells.forEach(el => $(el).style(resizeStyle));
+			cells.forEach((el) => $(el).style(resizeStyle));
 		}
 
 		$resizer.style({ opacity: null, bottom: null, zIndex: null, right: null });
 		document.onmousemove = null;
 		document.onmouseup = null;
-	}
+	};
 }

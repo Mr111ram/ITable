@@ -6,20 +6,18 @@ import { resizeHandler } from './table.resize';
 export class Table extends CoreComponent {
 	static className = 'itable-table';
 
-	constructor ($root) {
+	constructor($root) {
 		super($root, {
 			name: 'table',
-			listeners: [
-				'mousedown',
-			]
-		})
+			listeners: ['mousedown'],
+		});
 	}
 
 	toHTML() {
 		return createTable(10);
 	}
 
-	onMousedown(event){
+	onMousedown(event) {
 		const shouldResize = event.target.dataset.resize;
 		if (shouldResize) resizeHandler(this.$root, event, shouldResize);
 	}
